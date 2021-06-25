@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-center">
+        <br>    
+        <div class="#">
+        <br>
+        <br>    
+            <form method="post">
+                <h1 class='d-flex justify-content-center'>Login</h1>
+                <hr >
+                {% csrf_token %}
+                    {% for field in form %}
+                        <div class="container">
+                            <p class='container'>
+                                {{ field.label_tag }}<br>
+                                {{ field }}        
+                            </p>
+                        </div>
+                    {% endfor %}
+                    <button class="btn btn-primary container col-md-10 d-flex justify-content-center" type="submit">Login</button>
+                    <br>
+            </form>
+            <h5 class="d-flex justify-content-center"> Don't have an account</h5>
+            <form>
+                <h5 class="d-flex justify-content-center"><button type="submit" class="btn btn-primary d-flex justify-content-center col-md-10" formaction='{% url 'signup' %}'>Sign Up</button></h5>
+            </form>
+    </div>
+    </div>
+</body>
+</html>
